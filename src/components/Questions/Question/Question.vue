@@ -6,12 +6,13 @@
           <QuestionTitle v-bind:question="question" v-bind:index="index" />
         </div>
         <div class="col-10">
-          <QuestionInput />
+          <QuestionInput v-bind:onSelect="selectQuestion" />
         </div>
         <div class="col-1 table m-0 px-1">
           <QuestionActions v-bind:onDeleteQuestion="onDeleteQuestion" v-bind:question="question" />
         </div>
       </div>
+      <h1 class="text-center">ahua</h1>
     </div>
   </div>
 </template>
@@ -31,6 +32,16 @@ export default {
   props: {
     questions: Array,
     onDeleteQuestion: Function
+  },
+  data() {
+    return {
+      questionType: [{}]
+    };
+  },
+  methods: {
+    selectQuestion(e) {
+      console.log(e.target.value);
+    }
   }
 };
 </script>

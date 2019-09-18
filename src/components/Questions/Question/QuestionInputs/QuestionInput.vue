@@ -6,12 +6,26 @@
       </div>
     </div>
     <div class="col-5">
-      <select class="form-control dashed">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+      <select class="form-control dashed" @change="(e) => onSelect(e)">
+        <option>Question Type:</option>
+        <optgroup label="Text">
+          <option value="Free input">Free input</option>
+        </optgroup>
+        <optgroup label="Single Choice">
+          <option value="Dropdown">Dropdown</option>
+          <option value="Radio">Radio</option>
+          <option value="Satisfaction">Satisfaction</option>
+        </optgroup>
+        <optgroup label="Multiple Choice">
+          <option value="Matrix Custom">Matrix Custom</option>
+        </optgroup>
+        <optgroup label="Single Choice Matrix">
+          <option value="Matrix">Matrix</option>
+        </optgroup>
+        <optgroup label="Multiple Choice Matrix">
+          <option value="Dropdown">Dropdown</option>
+          <option value="Matrix">Matrix</option>
+        </optgroup>
       </select>
     </div>
   </div>
@@ -20,7 +34,10 @@
 
 <script>
 export default {
-  name: "QuestionInput"
+  name: "QuestionInput",
+  props: {
+    onSelect: Function
+  }
 };
 </script>
 
