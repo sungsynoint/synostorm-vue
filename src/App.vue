@@ -19,11 +19,6 @@ export default {
   components: {
     LeftMenu,
     Pages
-  },
-  data() {
-    return {
-      pages: []
-    };
   }
 };
 </script>
