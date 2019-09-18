@@ -4,7 +4,7 @@
       <div class="row card-body">
         <div class="col-1 px-1">
           <div class="mx-2">
-            <p class="text-dark mt-0 mb-0 font-13">{{question.question}}{{index + 1}}</p>
+            <p class="text-dark mt-0 mb-0 font-13">Q{{index + 1}}</p>
             <span class="card-subtitle text-muted font-11">{{question.id.toString().substring(0,5)}}</span>
           </div>
         </div>
@@ -31,7 +31,7 @@
             <span class="action-icon btn font-15">
               <i class="mdi mdi-file-multiple"></i>
             </span>
-            <span class="action-icon btn">
+            <span class="action-icon btn" @click="onDeleteQuestion(question.id)">
               <i class="mdi mdi-delete"></i>
             </span>
           </div>
@@ -44,7 +44,10 @@
 <script>
 export default {
   name: "Question",
-  props: ["questions"]
+  props: {
+    questions: Array,
+    onDeleteQuestion: Function
+  }
 };
 </script>
 

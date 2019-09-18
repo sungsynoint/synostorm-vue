@@ -16,7 +16,6 @@ export default {
     return {
       pages: [
         {
-          page: "Page",
           id: uuid()
         }
       ]

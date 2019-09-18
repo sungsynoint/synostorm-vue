@@ -15,7 +15,7 @@
       </div>
 
       <div class="card-title">
-        <h5 class="text-dark mt-0 mb-0">{{page.page}} {{index + 1}}</h5>
+        <h5 class="text-dark mt-0 mb-0">Page {{index + 1}}</h5>
         <span class="text-muted font-11">{{page.id.toString().substring(0,5)}}</span>
       </div>
     </div>

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Question v-bind:questions="questions" />
-    <AddQuestion v-bind:onClick="addQuestion" />
+    <Question v-bind:questions="questions" :onDeleteQuestion="removeQuestion" />
+    <AddQuestion :onClick="addQuestion" />
   </div>
 </template>
 
@@ -21,7 +21,6 @@ export default {
     return {
       questions: [
         {
-          question: "Q",
           id: uuid()
         }
       ]
@@ -30,9 +29,14 @@ export default {
   methods: {
     addQuestion() {
       this.questions.push({
-        question: "Q",
         id: uuid()
       });
+    },
+    removeQuestion(id) {
+      const questionIndex = this.questions.findIndex(
+        question => question.id === id
+      );
+      this.questions.splice(questionIndex, 1);
     }
   }
 };
