@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="col-5">
-      <select class="form-control dashed" @change="(e) => onSelect(e)">
+      <select class="form-control dashed" @change="(e) => onSelect(e, question)">
         <option>Question Type:</option>
         <optgroup label="Text">
           <option value="Free input">Free input</option>
@@ -36,7 +36,8 @@
 export default {
   name: "QuestionInput",
   props: {
-    onSelect: Function
+    onSelect: Function,
+    question: String
   }
 };
 </script>

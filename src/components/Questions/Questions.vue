@@ -1,6 +1,10 @@
 <template>
   <div>
-    <Question v-bind:questions="questions" :onDeleteQuestion="removeQuestion" />
+    <Question
+      v-bind:questions="questions"
+      :onDeleteQuestion="removeQuestion"
+      :onSelect="selectQuestion"
+    />
     <AddQuestion :onClick="addQuestion" />
   </div>
 </template>
@@ -21,7 +25,8 @@ export default {
     return {
       questions: [
         {
-          id: uuid()
+          id: uuid(),
+          type: ""
         }
       ]
     };
@@ -29,7 +34,8 @@ export default {
   methods: {
     addQuestion() {
       this.questions.push({
-        id: uuid()
+        id: uuid(),
+        type: ""
       });
     },
     removeQuestion(id) {
@@ -37,6 +43,10 @@ export default {
         question => question.id === id
       );
       this.questions.splice(questionIndex, 1);
+    },
+    selectQuestion(e, id) {
+      console.log(this.questions);
+      console.log(e.target.value, id);
     }
   }
 };
@@ -45,7 +55,7 @@ export default {
 
 <style scoped>
 .dashed {
-  border: 2px dashed rgb(238, 239, 245);
+  border: 2px dashed rgb(64, 76, 144);
 }
 
 .font-11 {

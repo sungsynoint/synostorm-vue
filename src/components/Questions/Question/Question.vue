@@ -6,42 +6,40 @@
           <QuestionTitle v-bind:question="question" v-bind:index="index" />
         </div>
         <div class="col-10">
-          <QuestionInput v-bind:onSelect="selectQuestion" />
+          <QuestionInput v-bind:onSelect="onSelect" v-bind:question="question.id" />
         </div>
         <div class="col-1 table m-0 px-1">
           <QuestionActions v-bind:onDeleteQuestion="onDeleteQuestion" v-bind:question="question" />
         </div>
       </div>
-      <h1 class="text-center">ahua</h1>
+      <QuestionsType v-bind:type="type" />
     </div>
   </div>
 </template>
 
 <script>
 import QuestionTitle from "./QuestionTitle/QuestionTitle.vue";
-import QuestionInput from "./QuestionInputs/QuestionInput";
-import QuestionActions from "./QuestionInputs/QuestionActions";
+import QuestionInput from "./QuestionInputs/QuestionInput.vue";
+import QuestionActions from "./QuestionInputs/QuestionActions.vue";
+import QuestionsType from "../QuestionsType/QuestionsType.vue";
 
 export default {
   name: "Question",
   components: {
     QuestionTitle,
     QuestionInput,
-    QuestionActions
+    QuestionActions,
+    QuestionsType
   },
   props: {
     questions: Array,
-    onDeleteQuestion: Function
+    onDeleteQuestion: Function,
+    onSelect: Function
   },
   data() {
     return {
-      questionType: [{}]
+      type: ""
     };
-  },
-  methods: {
-    selectQuestion(e) {
-      console.log(e.target.value);
-    }
   }
 };
 </script>
